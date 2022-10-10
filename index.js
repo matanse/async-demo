@@ -1,15 +1,15 @@
 console.log("before");
 
-// Callback-based approach
-getUser(1, (user) => {
-  getRepositories(user.gitHubUsername, (repos) => {
-    getCommits(repos[0], (commits) => {
-      console.log("commits: ", commits);
-    });
-  });
-});
+//      Callback-based approach
+// getUser(1, (user) => {
+//   getRepositories(user.gitHubUsername, (repos) => {
+//     getCommits(repos[0], (commits) => {
+//       console.log("commits: ", commits);
+//     });
+//   });
+// });
 
-// Promise-based approach
+//      Promise-based approach
 // getUser(1)
 //   .then((user) => {
 //     console.log(user);
@@ -22,7 +22,7 @@ getUser(1, (user) => {
 //   .then((commits) => console.log("Commits: ", commits))
 //   .catch((err) => console.log(err.message));
 
-// Async and Await approach
+//      Async and Await approach
 async function displayCommits() {
   try {
     const user = await getUser(1);
@@ -36,6 +36,7 @@ async function displayCommits() {
   }
 }
 displayCommits();
+
 console.log("after");
 
 function getUser(id) {
